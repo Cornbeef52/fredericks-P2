@@ -42,6 +42,12 @@ function swapPhoto() {
 
 // Counter for the mImages array
 var mCurrentIndex = 0;
+this.Onreadystatechange
+this.readyStateandstatus
+this.responseText
+this.Open
+this.Send
+
 
 // XMLHttpRequest variable
 var mRequest = new XMLHttpRequest();
@@ -56,7 +62,7 @@ mRequest.addEventListener("readystatechange", () => {
   }
 });
 
-mRequest.open("GET", "todos.json");
+mRequest.open("GET", "../images.json");
 mRequest.send();
 
 
