@@ -57,12 +57,19 @@ var mCurrentIndex = 0;
 
 // XMLHttpRequest variable
 var mRequest = new XMLHttpRequest();
-mRequest.addEventListener("readystatechange", () => {
-  console.log(request, request.readyState);
-  if (mRequest.readyState === 4 && mRequest.status === 200) {
-    const data = JSON.parse(mRequest.responseText);
-  iterateJSON(mJson);
+function fetchJSON()
+{
+  mRequest.onreadystatechange = function() {
+    console.log("on ready state change");
+    if(this.readyState == 4 && this.status == 200) {
+      mJson = JSON.parse(mRequest.responseText);
+      iterate(mJson);
+    }
   }
+mRequest.open("GET", mUrl, true);
+mRequest.send();
+
+
 }
 
 mRequest.open("GET", "../images.json");
